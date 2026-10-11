@@ -1,0 +1,28 @@
+[package]
+name = "utopia-client"
+description = "An HTTP/1.1 client with immutable configuration, destination checks on every connection, redirects, retries with backoff, streaming and pooling."
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "BSD-3-Clause"
+
+[dependencies]
+brotli = { version = "9", default-features = false, features = ["std"] }
+bytes = "1"
+flate2 = "1"
+getrandom = "0.3"
+php-std = { version = "0.1.0", git = "https://github.com/utopia-rs/php-std" }
+rustls = { version = "0.23", default-features = false, features = ["ring", "std", "tls12"] }
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal", "io-util", "fs"] }
+tokio-rustls = { version = "0.26", default-features = false, features = ["ring", "tls12"] }
+utopia-pools = { version = "0.1.0", git = "https://github.com/utopia-rs/pools" }
+utopia-span = { version = "0.1.0", git = "https://github.com/utopia-rs/span" }
+webpki-roots = "1"
+zstd = { version = "0.13", default-features = false }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "signal", "io-util"] }
+
+[package.metadata.utopia]
+php-sync = "809d2819d7da00d8b2f486e3bcb4c98a5265e950"
